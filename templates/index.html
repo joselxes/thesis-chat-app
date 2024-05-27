@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+        <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/addPriv.js') }}"></script>
+        <title>Welcome</title>
+    </head>
+    <body>
+      <h1 id="nombreCanal">{{source}}</h1>
+      <h1>{{username}}</h1>
+        <ul id="votes">
+            {% for mss in messages %}
+
+                <p type="sub" name="btn">{{mss}}</p>
+                <!-- <form class="" action="{{ url_for('chatList') }}/{{channel}}" method="post"> -->
+              <!-- </form> -->
+              {% else %}
+            </li>
+            <p> no hay <p>
+            {% endfor %}
+        </ul>
+        <hr>
+        <form id="forma" >
+          <input id="mensaje"type="text" name="texto" required>
+          <input id="mensaje"type="hidden" name="username" value={{username}}>
+          <button id="yes" data-user={{username}}>Yes</button>
+        </form>
+        <!-- <button data-vote="no">No</button>
+        <button data-vote="maybe">Maybe</button> -->
+
+<!-- <ul> 
+<li><div class="mensajes">
+  <img src="/static/imagenes/bandmember.jpg" alt="Avatar" style="width:100%;">
+  <p>Hello. How are you today?</p>
+  <span class="time-right">11:00</span>
+</div>
+</li>
+<li>
+<div class="mensajes darker">
+  <img src="/static/imagenes/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
+  <p>Hey! I'm fine. Thanks for asking!</p>
+  <span class="time-left">11:01</span>
+</div>
+</li>
+<li>
+<div class="mensajes">
+  <img src="/static/imagenes/bandmember.jpg" alt="Avatar" style="width:100%;">
+  <p>Sweet! So, what do you wanna do today?</p>
+  <span class="time-right">11:02</span>
+</div>
+</li>
+<li>
+<div class="mensajes darker">
+  <img src="/static/imagenes/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
+  <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
+  <span class="time-left">11:05</span>
+</div>
+</li>
+<ul/> -->
+
+
+    </body>
+</html>
+
+<!--
+
+
+    <head>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+        <script src="{{ url_for('static', filename='index.js') }}"></script>
+        <title>Vote</title>
+    </head>
+    <body>
+        <ul id="votes">
+        </ul>
+        <hr>
+        <input id="mensaje"type="text" name="texto" value="">
+        <button id="yes" data-vote="yes">Yes</button>
+
+    </body>
+ -->

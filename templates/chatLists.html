@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}
+  ChatList
+{% endblock %}
+{% block body %}
+
+<script src="{{ url_for('static', filename='js/checkStorage.js') }}"></script>
+<form action="{{ url_for('leave') }}"  id="closeSession-btn" style="width: 70%;display: inline-block;"  method="post">
+  <button class="logout-btn" type="submit">Logout</button>
+</form>
+<form action="{{ url_for('myProfile') }}" style="width: 70%;display: inline-block;"  method="post">
+  <button class="logout-btn" type="submit">Profile</button>
+</form>
+  <hr>
+  <div class="user-info">
+    <h1 class="user-info__title">Signed in as <span id="username">{{username}}</span></h1>
+  </div>
+
+
+<ul id="newChats">
+{% if newChats%}
+  <h3>Start a New Chat with:</h3>
+
+  {% for useri in newChats %}
+      <li>
+        <form id="newPriv">
+          <input type="hidden" id="newChannel" type="text"  name="texto"  value={{useri[0]}}>
+          <button class="startChat-btn" id="submit" name="button">{{useri[0]}}</button>
+        </form>
+      </li>
+  {% endfor %}
+{% endif %}
+</ul>
+
+<ul id="oldChats">
+  {% if oldChats%}
+    <h3>Previous chats:</h3>
+
+    {% for useri in oldChats %}
+      <li>
+        <form class="" action="{{ url_for('chatList') }}/{{useri[1]}}"  method="post">
+          <button class="chat-btn" id="submit" name="button">{{useri[0]}}</button>
+          </form>
+      </li>
+    {% endfor %}
+
+  {% else %}
+      <!-- <p> No previous chat with other users, start a new chat <p> -->
+  {% endif %}
+</ul>
+
+ 
+
+  <div id="result"></div>
+</div>
+
+
+
+{% endblock %}
+  <!-- <div class="modal-content animate" id="new-task">
+
+
+
+  </div> -->
+<!-- create a channel with perzonalization name -->
+ <!-- <form id="canalForma">
+    <input id="newChannel"type="text"  name="texto" required>
+    <input type="hidden" name="username" value={{username}}>
+    <button id="submit" name="button">Nombre nueva Sala</button>
+  </form> -->
+<!-- display the channels created custom name -->
+  <!-- <ul id="canales">
+      {% for channel in channels %}
+      <li>
+        <form class="" action="{{ url_for('chatList') }}/{{channel}}" method="post">
+          <input name="username"type="hidden" value={{username}} >
+          <button type="sub" name="btn" data-user={{username}}>{{channel}}</button>
+        </form>
+        {% else %}
+      </li>
+      <p> no hay <p>
+      {% endfor %}
+  </ul> -->
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <script src="{{ url_for('static', filename='js/addChannel.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/addPriv.js') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script>
+      // Get the modal
+      var modal = document.getElementById('id01');
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+    </script>
+
+
+
+    <!-- <script src="{{ url_for('static', filename='js/socket.js') }}"></script> -->
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/begin.css">
+
+  </head>
+  <body>
+    <div class="cont">
+      {% block body %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

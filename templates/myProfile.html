@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}
+  ChatList
+
+{% endblock %}
+{% block body %}
+<script src="{{ url_for('static', filename='js/keys.js') }}"></script>
+      <form action="{{ url_for('chatList') }}"  method="post">
+        <button class="goback-btn" type="submit">Go back</button>
+      </form>
+      <div class="user-info">
+        <h1 class="user-info__title">Signed in as <span id="signedUser">{{username}}</span></h1>
+      </div>
+      
+      <form  id="keysForm" style="color: black;" method="post">
+        <button class="chat-btn" id="submit" name="button">show Keys</button>
+      </form>
+
+
+      <h2   style="overflow: hidden; word-wrap: break-word;" ><p id="public_key"></p></h2>
+      <hr>
+      <h2    style="overflow: hidden; word-wrap: break-word;" ><p id="private_key"></p></h2>
+      <hr>
+      <h2    style="overflow: hidden; word-wrap: break-word;" ><p id="shared_key"></p></h2>
+      <!-- <h2 class="user-info__title">public key:  {{mykeys[0]}} || <p id="public_key"></p></h2>
+      <hr>
+      <h2 class="user-info__title">private key: {{mykeys[1]}} <p id="private_key"></p></h2> -->
+
+      <div id="result"></div>
+      <ul id="forma" >
+      </ul>
+
+    <!-- <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+    </div> -->
+  </div>
+
+
+{% endblock %}

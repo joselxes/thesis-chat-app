@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}
+  ChatList
+
+{% endblock %}
+{% block body %}
+  <script src="{{ url_for('static', filename='js/checkSharedKey.js') }}"></script>
+  <form action="{{ url_for('chatList') }}" method="post">
+    <button class="goback-btn" type="submit">Go back</button>
+  </form>
+
+
+
+      <!-- <h1 id="nombreCanal">{{source}}</h1> -->
+      <div class="user-info">
+        <h1 class="user-info__title">Signed in as <span id="signedUser">{{username}}</span></h1>
+        <h1 class="user-info__title">Chatting with <span id="chatUser">{{otherUser}}</span></h1>
+      </div>
+      
+
+
+
+
+
+      
+  <div class="modal-content animate" id="new-task">
+    <ul id="messages">
+      {% for mss in messages %}
+          {% if mss.username == username %}
+            <li><div class="mensajes darker">
+          {% else %}
+            <li><div class="mensajes clear">
+          {%endif%}
+              <img src="/static/imagenes/bandmember.jpg" alt="Avatar" style="width:100%;">
+              <p type="sub" name="btn" >{{mss.content}}</p>
+              <span class="time-right"> {{mss.currentTime}} by {{mss.username}}</span>
+
+            </div>
+            </li>
+
+
+        {% else %}
+      </li>
+      <p> no hay <p>
+      {% endfor %}
+  </ul>
+  <!-- <hr> -->
+  <form id="forma" >
+    <input id="mensaje"type="text" name="texto" required>
+    <input type="hidden" name="time" id="currentTime">
+    <button id="yes" data-user={{username}} data-channelid={{source}}>Send</button>
+  </form>
+
+
+
+    <!-- <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+    </div> -->
+  </div>
+  <div id="result"></div>
+
+{% endblock %}

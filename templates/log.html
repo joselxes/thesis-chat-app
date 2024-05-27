@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}
+  Nickname
+
+{% endblock %}
+{% block body %}
+<center>
+<h3>Chat</h3>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Empezar</button>
+</center>
+<div id="id01" class="modal">
+
+  <form class="modal-content animate" id="new-taskk" method="post" action="{{ url_for('chatList') }}">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="/static/css/login.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" id="taskk" placeholder="Enter Username" name="username" required>
+
+      <button id="submitt">Entrar</button>
+
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+</div>
+
+
+
+
+{% endblock %}
